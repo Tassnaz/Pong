@@ -7,6 +7,7 @@ size = Vector2(40, 318)
 
 [node name="Paddle 1" type="CharacterBody2D" unique_id=1094964928]
 script = ExtResource("1_msuwi")
+speed = 400.0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=892271669]
 offset_left = 71.0
