@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bkgsgplmdrdk4"]
 
+[ext_resource type="Script" uid="uid://prj3x8nhx612" path="res://Scenes/ball.gd" id="1_d60mj"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2y2t"]
 bg_color = Color(0, 0.71975744, 0.33822724, 1)
 corner_radius_top_left = 30
@@ -9,9 +11,10 @@ corner_radius_bottom_left = 30
 corner_detail = 10
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kry3j"]
-radius = 32.0
+radius = 30.413813
 
 [node name="Ball" type="CharacterBody2D" unique_id=1595610382]
+script = ExtResource("1_d60mj")
 
 [node name="Panel" type="Panel" parent="." unique_id=1787267733]
 offset_left = 605.0
@@ -22,5 +25,5 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_m2y2t")
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=552486400]
-position = Vector2(636, 374)
+position = Vector2(636, 373)
 shape = SubResource("CircleShape2D_kry3j")

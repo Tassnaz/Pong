@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2y2t"]
 size = Vector2(40, 318)
 
-[node name="Paddle 2" type="CharacterBody2D" unique_id=1094964928]
+[node name="Paddle 2" type="CharacterBody2D" unique_id=1094964928 groups=["paddle"]]
 modulate = Color(1, 0, 0.39215687, 1)
 script = ExtResource("1_mufcy")
 speed = 400.0

@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://c41geo6b8y1cq" path="res://Scenes/paddle_2.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bkgsgplmdrdk4" path="res://Scenes/ball.tscn" id="4_jjvhh"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2y2t"]
+size = Vector2(1280, 2)
+
 [node name="Main" type="Node2D" unique_id=202715708]
 script = ExtResource("1_jjgbg")
 
@@ -14,3 +17,13 @@ script = ExtResource("1_jjgbg")
 position = Vector2(1104, 0)
 
 [node name="Ball" parent="." unique_id=1595610382 instance=ExtResource("4_jjvhh")]
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=238876674]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=318511363]
+position = Vector2(640, 1)
+shape = SubResource("RectangleShape2D_m2y2t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1743856939]
+position = Vector2(640, 719)
+shape = SubResource("RectangleShape2D_m2y2t")
