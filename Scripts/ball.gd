@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 		if collider.is_in_group("paddle"):
 			speed += 25
 			
-			var hit = clamp((global_position.y - collider.global_position.y) / 50.0, -1.0, 1.0)
+			var hit = clamp((global_position.y - collider.global_position.y) / 159.0, -1.0, 1.0)
 			var dir = Vector2(-sign(velocity.x), hit * 0.75).normalized()
 			velocity = dir * speed
 		else:

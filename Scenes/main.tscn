@@ -1,29 +1,70 @@
 [gd_scene format=3 uid="uid://ceu771rqxpk0b"]
 
-[ext_resource type="Script" uid="uid://dhkfvsy0xqrk4" path="res://Scripts/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cvec53u7yq677" path="res://Scenes/paddle_1.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://c41geo6b8y1cq" path="res://Scenes/paddle_2.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bkgsgplmdrdk4" path="res://Scenes/ball.tscn" id="4_jjvhh"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2y2t"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2y2t"]
-size = Vector2(1280, 2)
+size = Vector2(1280, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uu5f4"]
+size = Vector2(33, 704)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
+size = Vector2(33, 704)
 
 [node name="Main" type="Node2D" unique_id=202715708]
-script = ExtResource("1_jjgbg")
 
-[node name="Paddle 1" parent="." unique_id=1094964928 instance=ExtResource("2_bo1nx")]
+[node name="Background" type="Panel" parent="." unique_id=694478546]
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m2y2t")
+
+[node name="Paddle 1" parent="." unique_id=1094964928 groups=["paddle"] instance=ExtResource("2_bo1nx")]
+position = Vector2(100, 360)
+scale = Vector2(1, 0.6)
+collision_layer = 2
 
 [node name="Paddle 2" parent="." unique_id=1020084141 instance=ExtResource("3_8gbba")]
-position = Vector2(1104, 0)
+modulate = Color(1, 1, 1, 1)
+position = Vector2(1184, 360)
+scale = Vector2(1, 0.6)
+collision_layer = 2
 
 [node name="Ball" parent="." unique_id=1595610382 instance=ExtResource("4_jjvhh")]
+position = Vector2(640, 360)
+collision_layer = 4
+collision_mask = 3
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=238876674]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=318511363]
-position = Vector2(640, 1)
+position = Vector2(640, 4)
 shape = SubResource("RectangleShape2D_m2y2t")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1743856939]
-position = Vector2(640, 719)
+position = Vector2(640, 716)
 shape = SubResource("RectangleShape2D_m2y2t")
+
+[node name="Goal 1" type="Area2D" parent="." unique_id=1787104928]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal 1" unique_id=2123185811]
+position = Vector2(24.5, 360)
+shape = SubResource("RectangleShape2D_uu5f4")
+debug_color = Color(0, 1, 0.0627451, 0.41960785)
+
+[node name="Goal 2" type="Area2D" parent="." unique_id=366828447]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal 2" unique_id=537789154]
+position = Vector2(1255.5, 361)
+shape = SubResource("RectangleShape2D_8gbba")
+debug_color = Color(1, 0.13725491, 0.2509804, 0.41960785)

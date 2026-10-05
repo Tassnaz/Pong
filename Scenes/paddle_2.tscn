@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c41geo6b8y1cq"]
 
-[ext_resource type="Script" uid="uid://co1i2nw2gh8ed" path="res://Scenes/paddle_2.gd" id="1_mufcy"]
+[ext_resource type="Script" uid="uid://co1i2nw2gh8ed" path="res://Scripts/paddle_2.gd" id="1_mufcy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m2y2t"]
 size = Vector2(40, 318)
@@ -11,11 +11,11 @@ script = ExtResource("1_mufcy")
 speed = 400.0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=892271669]
-offset_left = 71.0
-offset_top = 184.0
-offset_right = 111.0
-offset_bottom = 502.0
+offset_left = -20.0
+offset_top = -159.0
+offset_right = 20.0
+offset_bottom = 159.0
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=162248723]
-position = Vector2(91, 343)
 shape = SubResource("RectangleShape2D_m2y2t")
