@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bkgsgplmdrdk4"]
 
 [ext_resource type="Script" uid="uid://prj3x8nhx612" path="res://Scripts/ball.gd" id="1_d60mj"]
+[ext_resource type="AudioStream" uid="uid://bvwqk2kuhumbm" path="res://SFX/PaddleHitSound.wav" id="2_eb1ap"]
+[ext_resource type="AudioStream" uid="uid://cdkb4ot5e2hik" path="res://SFX/WallHitSound.wav" id="3_27lt3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2y2t"]
 bg_color = Color(1, 1, 1, 1)
@@ -13,6 +15,16 @@ corner_detail = 10
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kry3j"]
 radius = 30.1
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_eb1ap"]
+random_pitch = 1.0293022
+streams_count = 1
+stream_0/stream = ExtResource("2_eb1ap")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_27lt3"]
+random_pitch = 1.0293022
+streams_count = 1
+stream_0/stream = ExtResource("3_27lt3")
 
 [node name="Ball" type="CharacterBody2D" unique_id=1595610382]
 script = ExtResource("1_d60mj")
@@ -33,3 +45,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_m2y2t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=552486400]
 shape = SubResource("CircleShape2D_kry3j")
+
+[node name="PaddleHitSFX" type="AudioStreamPlayer2D" parent="." unique_id=113628684]
+stream = SubResource("AudioStreamRandomizer_eb1ap")
+volume_db = 5.0
+
+[node name="WallHitSFX" type="AudioStreamPlayer2D" parent="." unique_id=876872799]
+stream = SubResource("AudioStreamRandomizer_27lt3")
+volume_db = 5.0

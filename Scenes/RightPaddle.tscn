@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://co1i2nw2gh8ed" path="res://Scripts/right_paddle.gd" id="1_mufcy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2y2t"]
-size = Vector2(40, 318)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vryq"]
+radius = 20.0
+height = 318.0
 
 [node name="Paddle 2" type="CharacterBody2D" unique_id=1094964928 groups=["paddle"]]
 modulate = Color(1, 0, 0.39215687, 1)
@@ -18,4 +19,4 @@ offset_bottom = 159.0
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=162248723]
-shape = SubResource("RectangleShape2D_m2y2t")
+shape = SubResource("CapsuleShape2D_4vryq")

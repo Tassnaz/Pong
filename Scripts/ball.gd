@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+@onready var paddle_hit_sfx: AudioStreamPlayer2D = $PaddleHitSFX
+@onready var wall_hit_sfx: AudioStreamPlayer2D = $WallHitSFX
+
+
 @export var speed: float = 400.0
 @export var launch_delay: float = 1.0
 
@@ -12,10 +16,18 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 		if collider.is_in_group("paddle"):
 			speed += 25
+			paddle_hit_sfx.play()
+			print ("paddle hit")
 			
 			var hit = clamp((global_position.y - collider.global_position.y) / 159.0, -1.0, 1.0)
 			var dir = Vector2(-sign(velocity.x), hit * 0.75).normalized()
 			velocity = dir * speed
+			
+		elif collider.is_in_group("wall"):
+			velocity = velocity.bounce(collision.get_normal())
+			wall_hit_sfx.play()
+			print ("wall hit")
+			
 		else:
 			velocity = velocity.bounce(collision.get_normal())
 			

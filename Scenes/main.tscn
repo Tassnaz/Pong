@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cvec53u7yq677" path="res://Scenes/LeftPaddle.tscn" id="2_pbw6q"]
 [ext_resource type="PackedScene" uid="uid://c41geo6b8y1cq" path="res://Scenes/RightPaddle.tscn" id="3_v1gob"]
 [ext_resource type="PackedScene" uid="uid://bkgsgplmdrdk4" path="res://Scenes/Ball.tscn" id="4_jw32o"]
+[ext_resource type="AudioStream" uid="uid://dxcjtvqe4cql5" path="res://SFX/ScoreSound.wav" id="5_pbw6q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2y2t"]
 bg_color = Color(0, 0, 0, 1)
@@ -46,14 +47,14 @@ position = Vector2(640, 360)
 collision_layer = 4
 collision_mask = 3
 
-[node name="Walls" type="StaticBody2D" parent="." unique_id=238876674]
+[node name="Walls" type="StaticBody2D" parent="." unique_id=238876674 groups=["wall"]]
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=318511363]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=318511363 groups=["wall"]]
 position = Vector2(640, 4)
 shape = SubResource("RectangleShape2D_m2y2t")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1743856939]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=1743856939 groups=["wall"]]
 position = Vector2(640, 716)
 shape = SubResource("RectangleShape2D_m2y2t")
 
@@ -69,15 +70,15 @@ debug_color = Color(0, 1, 0.0627451, 0.41960785)
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightGoal" unique_id=537789154]
-position = Vector2(1255.5, 361)
+position = Vector2(1255.5, 360)
 shape = SubResource("RectangleShape2D_8gbba")
 debug_color = Color(1, 0.13725491, 0.2509804, 0.41960785)
 
 [node name="LeftScoreLabel" type="Label" parent="." unique_id=889256772]
-offset_left = 120.0
-offset_top = 46.0
-offset_right = 234.0
-offset_bottom = 183.0
+offset_left = 200.0
+offset_top = 50.0
+offset_right = 314.0
+offset_bottom = 187.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.6784314)
 theme_override_font_sizes/font_size = 100
 text = "12"
@@ -85,15 +86,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RightScoreLabel" type="Label" parent="." unique_id=2116785320]
-offset_left = 1031.0
-offset_top = 46.0
-offset_right = 1145.0
-offset_bottom = 183.0
+offset_left = 966.0
+offset_top = 50.0
+offset_right = 1080.0
+offset_bottom = 187.0
 theme_override_colors/font_color = Color(1, 1, 1, 0.6784314)
 theme_override_font_sizes/font_size = 100
 text = "5"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ScoreSFX" type="AudioStreamPlayer" parent="." unique_id=617620204]
+stream = ExtResource("5_pbw6q")
+pitch_scale = 1.2
 
 [connection signal="body_entered" from="LeftGoal" to="." method="_on_left_goal_body_entered"]
 [connection signal="body_entered" from="RightGoal" to="." method="_on_right_goal_body_entered"]
