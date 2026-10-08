@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 400.0
+@export var launch_delay: float = 1.0
 
 func _ready() -> void:
 	launch()
@@ -19,9 +20,15 @@ func _physics_process(delta: float) -> void:
 			velocity = velocity.bounce(collision.get_normal())
 			
 func launch():
+	velocity = Vector2.ZERO
+	await get_tree().create_timer(launch_delay).timeout
 	var angle = randf_range(-PI / 4, PI / 4)
 	var dir = Vector2.RIGHT.rotated(angle)
 	if randf() < 0.5:
 		dir.x *= -1
 	velocity = dir * speed
-	
+
+func reset():
+	global_position = get_viewport_rect().size / 2
+	speed = 400
+	launch()

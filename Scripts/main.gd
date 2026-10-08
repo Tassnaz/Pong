@@ -5,19 +5,18 @@ extends Node2D
 @onready var right_score_label: Label = $RightScoreLabel
 
 func _ready() -> void:
-	
 	Global.changed.connect(uppdate_labels)
 	uppdate_labels()
 	
 func _on_left_goal_body_entered(body: Node2D) -> void:
 	if body == ball:
-		Global.add_score_left()
+		Global.add_score_right()
 		ball.reset()
 		print ("score")
 
 func _on_right_goal_body_entered(body: Node2D) -> void:
 	if body == ball:
-		Global.add_score_right()
+		Global.add_score_left()
 		ball.reset()
 		print ("score")
 
