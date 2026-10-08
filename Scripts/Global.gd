@@ -12,3 +12,8 @@ func add_score_left():
 func add_score_right():
 	right_score += 1
 	changed.emit()
+	
+func reset():
+	left_score = 0
+	right_score = 0
+	changed.emit()
