@@ -48,8 +48,8 @@ shape = SubResource("CircleShape2D_kry3j")
 
 [node name="PaddleHitSFX" type="AudioStreamPlayer2D" parent="." unique_id=113628684]
 stream = SubResource("AudioStreamRandomizer_eb1ap")
-volume_db = 5.0
+volume_db = 10.0
 
 [node name="WallHitSFX" type="AudioStreamPlayer2D" parent="." unique_id=876872799]
 stream = SubResource("AudioStreamRandomizer_27lt3")
-volume_db = 5.0
+volume_db = 10.0

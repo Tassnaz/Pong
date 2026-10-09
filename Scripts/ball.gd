@@ -3,7 +3,6 @@ extends CharacterBody2D
 @onready var paddle_hit_sfx: AudioStreamPlayer2D = $PaddleHitSFX
 @onready var wall_hit_sfx: AudioStreamPlayer2D = $WallHitSFX
 
-
 @export var speed: float = 400.0
 @export var launch_delay: float = 1.0
 
@@ -30,7 +29,7 @@ func _physics_process(delta: float) -> void:
 			
 		else:
 			velocity = velocity.bounce(collision.get_normal())
-			
+
 func launch():
 	velocity = Vector2.ZERO
 	await get_tree().create_timer(launch_delay).timeout
