@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var paddle_hit_sfx: AudioStreamPlayer2D = $PaddleHitSFX
 @onready var wall_hit_sfx: AudioStreamPlayer2D = $WallHitSFX
+@onready var hit_particles: CPUParticles2D = $HitParticles
+
 
 @export var speed: float = 400.0
 @export var launch_delay: float = 1.0
@@ -12,6 +14,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	if collision:
+		spawn_particles(collision)
 		var collider = collision.get_collider()
 		if collider.is_in_group("paddle"):
 			speed += 25
@@ -43,3 +46,8 @@ func reset():
 	global_position = get_viewport_rect().size / 2
 	speed = 400
 	launch()
+
+func spawn_particles(collision):
+	hit_particles.global_position = collision.get_position()
+	hit_particles.rotation = collision.get_normal().angle()
+	hit_particles.restart()

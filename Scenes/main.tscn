@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ceu771rqxpk0b"]
 
-[ext_resource type="Script" uid="uid://bhlcch6flsugx" path="res://Scripts/main.gd" id="1_rgh2o"]
-[ext_resource type="PackedScene" uid="uid://cvec53u7yq677" path="res://Scenes/LeftPaddle.tscn" id="2_pbw6q"]
-[ext_resource type="PackedScene" uid="uid://c41geo6b8y1cq" path="res://Scenes/RightPaddle.tscn" id="3_v1gob"]
-[ext_resource type="PackedScene" uid="uid://bkgsgplmdrdk4" path="res://Scenes/ball.tscn" id="4_jw32o"]
-[ext_resource type="AudioStream" uid="uid://dxcjtvqe4cql5" path="res://SFX/ScoreSound.wav" id="5_pbw6q"]
+[ext_resource type="Script" uid="uid://bhlcch6flsugx" path="res://Scripts/main.gd" id="1_kry3j"]
+[ext_resource type="PackedScene" uid="uid://cvec53u7yq677" path="res://Scenes/left_paddle.tscn" id="2_21xkr"]
+[ext_resource type="PackedScene" uid="uid://c41geo6b8y1cq" path="res://Scenes/right_paddle.tscn" id="3_6bp64"]
+[ext_resource type="PackedScene" uid="uid://bkgsgplmdrdk4" path="res://Scenes/ball.tscn" id="4_344ge"]
+[ext_resource type="AudioStream" uid="uid://dxcjtvqe4cql5" path="res://SFX/ScoreSound.wav" id="5_ynf5e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2y2t"]
 bg_color = Color(0, 0, 0, 1)
@@ -24,25 +24,25 @@ size = Vector2(33, 704)
 size = Vector2(33, 704)
 
 [node name="Main" type="Node2D" unique_id=202715708]
-script = ExtResource("1_rgh2o")
+script = ExtResource("1_kry3j")
 
 [node name="Background" type="Panel" parent="." unique_id=694478546]
 offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_m2y2t")
 
-[node name="LeftPaddle" parent="." unique_id=1094964928 groups=["paddle"] instance=ExtResource("2_pbw6q")]
+[node name="LeftPaddle" parent="." unique_id=1094964928 groups=["paddle"] instance=ExtResource("2_21xkr")]
 position = Vector2(100, 360)
 scale = Vector2(1, 0.6)
 collision_layer = 2
 
-[node name="RightPaddle" parent="." unique_id=1020084141 instance=ExtResource("3_v1gob")]
+[node name="RightPaddle" parent="." unique_id=1020084141 instance=ExtResource("3_6bp64")]
 modulate = Color(1, 1, 1, 1)
 position = Vector2(1184, 360)
 scale = Vector2(1, 0.6)
 collision_layer = 2
 
-[node name="Ball" parent="." unique_id=1595610382 instance=ExtResource("4_jw32o")]
+[node name="Ball" parent="." unique_id=1595610382 instance=ExtResource("4_344ge")]
 position = Vector2(640, 360)
 collision_layer = 4
 collision_mask = 3
@@ -97,7 +97,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ScoreSFX" type="AudioStreamPlayer" parent="." unique_id=617620204]
-stream = ExtResource("5_pbw6q")
+stream = ExtResource("5_ynf5e")
 pitch_scale = 1.2
 
 [connection signal="body_entered" from="LeftGoal" to="." method="_on_left_goal_body_entered"]

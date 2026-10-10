@@ -26,6 +26,10 @@ random_pitch = 1.0293022
 streams_count = 1
 stream_0/stream = ExtResource("3_27lt3")
 
+[sub_resource type="Curve" id="Curve_7k5wq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.39325845), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Ball" type="CharacterBody2D" unique_id=1595610382]
 script = ExtResource("1_d60mj")
 
@@ -53,3 +57,15 @@ volume_db = 10.0
 [node name="WallHitSFX" type="AudioStreamPlayer2D" parent="." unique_id=876872799]
 stream = SubResource("AudioStreamRandomizer_27lt3")
 volume_db = 10.0
+
+[node name="HitParticles" type="CPUParticles2D" parent="." unique_id=1995685547]
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 250.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_7k5wq")
