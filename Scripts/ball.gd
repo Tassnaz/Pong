@@ -3,10 +3,13 @@ extends CharacterBody2D
 @onready var paddle_hit_sfx: AudioStreamPlayer2D = $PaddleHitSFX
 @onready var wall_hit_sfx: AudioStreamPlayer2D = $WallHitSFX
 @onready var hit_particles: CPUParticles2D = $HitParticles
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 
 @export var speed: float = 400.0
 @export var launch_delay: float = 1.0
+@export var half_paddle_height: float = 159.0
 
 func _ready() -> void:
 	launch()
@@ -21,7 +24,7 @@ func _physics_process(delta: float) -> void:
 			paddle_hit_sfx.play()
 			print ("paddle hit")
 			
-			var hit = clamp((global_position.y - collider.global_position.y) / 159.0, -1.0, 1.0)
+			var hit = clamp((global_position.y - collider.global_position.y) / half_paddle_height, -1.0, 1.0)
 			var dir = Vector2(-sign(velocity.x), hit * 0.75).normalized()
 			velocity = dir * speed
 			
@@ -32,7 +35,7 @@ func _physics_process(delta: float) -> void:
 			
 		else:
 			velocity = velocity.bounce(collision.get_normal())
-
+		
 func launch():
 	velocity = Vector2.ZERO
 	await get_tree().create_timer(launch_delay).timeout
@@ -45,9 +48,13 @@ func launch():
 func reset():
 	global_position = get_viewport_rect().size / 2
 	speed = 400
+	Global.shrink.emit()
 	launch()
 
 func spawn_particles(collision):
 	hit_particles.global_position = collision.get_position()
 	hit_particles.rotation = collision.get_normal().angle()
 	hit_particles.restart()
+
+func divide_paddle_height():
+	animation_player.play("half_paddle_height")

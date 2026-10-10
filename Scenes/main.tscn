@@ -37,7 +37,6 @@ scale = Vector2(1, 0.6)
 collision_layer = 2
 
 [node name="RightPaddle" parent="." unique_id=1020084141 instance=ExtResource("3_6bp64")]
-modulate = Color(1, 1, 1, 1)
 position = Vector2(1184, 360)
 scale = Vector2(1, 0.6)
 collision_layer = 2

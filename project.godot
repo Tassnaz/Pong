@@ -26,6 +26,15 @@ window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[file_customization]
+
+folder_colors={
+"res://Assets/": "red",
+"res://SFX/": "green",
+"res://Scenes/": "yellow",
+"res://Scripts/": "blue"
+}
+
 [global_group]
 
 paddle=""
