@@ -9,7 +9,6 @@ extends Node2D
 
 func _ready() -> void:
 	Global.changed.connect(uppdate_labels)
-	Global.shrink.connect(shrink_paddles)
 	uppdate_labels()
 
 func _on_left_goal_body_entered(body: Node2D) -> void:
@@ -18,6 +17,7 @@ func _on_left_goal_body_entered(body: Node2D) -> void:
 		ball.reset()
 		print ("score")
 		score_sfx.play()
+		new_round()
 
 func _on_right_goal_body_entered(body: Node2D) -> void:
 	if body == ball:
@@ -25,9 +25,9 @@ func _on_right_goal_body_entered(body: Node2D) -> void:
 		ball.reset()
 		print ("score")
 		score_sfx.play()
+		new_round()
 
 func uppdate_labels():
-	
 	left_score_label.text = str(Global.left_score)
 	right_score_label.text = str(Global.right_score)
 
@@ -35,3 +35,6 @@ func shrink_paddles():
 	left_paddle.shrink()
 	right_paddle.shrink()
 	ball.divide_paddle_height()
+
+func new_round():
+	shrink_paddles()

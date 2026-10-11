@@ -1,7 +1,6 @@
 extends Node
 
 signal changed
-signal shrink
 
 var left_score: int = 0
 var right_score: int = 0

@@ -48,7 +48,6 @@ func launch():
 func reset():
 	global_position = get_viewport_rect().size / 2
 	speed = 400
-	Global.shrink.emit()
 	launch()
 
 func spawn_particles(collision):
