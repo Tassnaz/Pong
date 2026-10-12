@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bkgsgplmdrdk4" path="res://Scenes/ball.tscn" id="4_344ge"]
 [ext_resource type="AudioStream" uid="uid://dxcjtvqe4cql5" path="res://SFX/ScoreSound.wav" id="5_ynf5e"]
 
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2y2t"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 8

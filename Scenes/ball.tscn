@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bkgsgplmdrdk4"]
 
-[ext_resource type="Script" uid="uid://prj3x8nhx612" path="res://Scripts/ball.gd" id="1_d60mj"]
-[ext_resource type="AudioStream" uid="uid://bvwqk2kuhumbm" path="res://SFX/PaddleHitSound.wav" id="2_eb1ap"]
-[ext_resource type="AudioStream" uid="uid://cdkb4ot5e2hik" path="res://SFX/WallHitSound.wav" id="3_27lt3"]
+[ext_resource type="Script" uid="uid://prj3x8nhx612" path="res://Scripts/ball.gd" id="1_376qj"]
+[ext_resource type="AudioStream" uid="uid://bvwqk2kuhumbm" path="res://SFX/PaddleHitSound.wav" id="2_yk4cr"]
+[ext_resource type="AudioStream" uid="uid://cdkb4ot5e2hik" path="res://SFX/WallHitSound.wav" id="3_aw2wy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2y2t"]
 bg_color = Color(1, 1, 1, 1)
@@ -19,12 +19,12 @@ radius = 30.1
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_eb1ap"]
 random_pitch = 1.0293022
 streams_count = 1
-stream_0/stream = ExtResource("2_eb1ap")
+stream_0/stream = ExtResource("2_yk4cr")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_27lt3"]
 random_pitch = 1.0293022
 streams_count = 1
-stream_0/stream = ExtResource("3_27lt3")
+stream_0/stream = ExtResource("3_aw2wy")
 
 [sub_resource type="Curve" id="Curve_7k5wq"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.39325845), 0.0, 0.0, 0, 0]
@@ -67,7 +67,7 @@ _data = {
 }
 
 [node name="Ball" type="CharacterBody2D" unique_id=1595610382]
-script = ExtResource("1_d60mj")
+script = ExtResource("1_376qj")
 
 [node name="Panel" type="Panel" parent="." unique_id=1787267733]
 anchors_preset = 8
