@@ -6,10 +6,8 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
-
 @export var speed: float = 400.0
 @export var launch_delay: float = 1.0
-@export var half_paddle_height: float = 159.0
 
 func _ready() -> void:
 	launch()
@@ -24,10 +22,11 @@ func _physics_process(delta: float) -> void:
 			paddle_hit_sfx.play()
 			print ("paddle hit")
 			
-			var hit = clamp((global_position.y - collider.global_position.y) / half_paddle_height, -1.0, 1.0)
-			var dir = Vector2(-sign(velocity.x), hit * 0.75).normalized()
-			velocity = dir * speed
-			
+			var half_height = collider.get_node("CollisionShape2D").shape.size.y / 2
+			var hit = clamp((global_position.y - collider.global_position.y) / half_height, -1.0, 1.0)
+			var away = sign(global_position.x - collider.global_position.x)
+			velocity = Vector2(away, hit * 0.75).normalized() * speed
+			print(str(half_height))
 		elif collider.is_in_group("wall"):
 			velocity = velocity.bounce(collision.get_normal())
 			wall_hit_sfx.play()
@@ -35,6 +34,7 @@ func _physics_process(delta: float) -> void:
 			
 		else:
 			velocity = velocity.bounce(collision.get_normal())
+		
 		
 func launch():
 	velocity = Vector2.ZERO
@@ -54,6 +54,3 @@ func spawn_particles(collision):
 	hit_particles.global_position = collision.get_position()
 	hit_particles.rotation = collision.get_normal().angle()
 	hit_particles.restart()
-
-func divide_paddle_height():
-	animation_player.play("half_paddle_height")

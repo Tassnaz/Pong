@@ -34,7 +34,6 @@ func uppdate_labels():
 func shrink_paddles():
 	left_paddle.shrink()
 	right_paddle.shrink()
-	ball.divide_paddle_height()
 
 func new_round():
 	shrink_paddles()
