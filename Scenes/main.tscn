@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bkgsgplmdrdk4" path="res://Scenes/ball.tscn" id="4_344ge"]
 [ext_resource type="AudioStream" uid="uid://dxcjtvqe4cql5" path="res://SFX/ScoreSound.wav" id="5_ynf5e"]
 
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m2y2t"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 8
@@ -32,7 +31,7 @@ offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_m2y2t")
 
-[node name="LeftPaddle" parent="." unique_id=1094964928 groups=["paddle"] instance=ExtResource("2_21xkr")]
+[node name="LeftPaddle" parent="." unique_id=1094964928 instance=ExtResource("2_21xkr")]
 position = Vector2(100, 360)
 scale = Vector2(1, 0.6)
 collision_layer = 2

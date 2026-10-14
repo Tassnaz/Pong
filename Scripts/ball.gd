@@ -19,14 +19,24 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 		if collider.is_in_group("paddle"):
 			speed += 25
+			var screen_mid = get_viewport_rect().size.x / 2
+			var dir_x = 1.0 if collider.global_position.x < screen_mid else -1.0
+			
+			var paddle_shape = collider.get_node("CollisionShape2D").shape
+			var half_w = paddle_shape.size.x / 2
+			var half_h = paddle_shape.size.y / 2
+			var radius = $CollisionShape2D.shape.radius
+			
+			global_position.x = collider.global_position.x + dir_x * (half_w + radius + 1.0)
+			
+			var hit = clamp((global_position.y - collider.global_position.y) / half_h, -1.0, 1.0)
+			
+			velocity = Vector2(dir_x, hit * 0.75).normalized() * speed
+			
 			paddle_hit_sfx.play()
 			print ("paddle hit")
 			
-			var half_height = collider.get_node("CollisionShape2D").shape.size.y / 2
-			var hit = clamp((global_position.y - collider.global_position.y) / half_height, -1.0, 1.0)
-			var away = sign(global_position.x - collider.global_position.x)
-			velocity = Vector2(away, hit * 0.75).normalized() * speed
-			print(str(half_height))
+			
 		elif collider.is_in_group("wall"):
 			velocity = velocity.bounce(collision.get_normal())
 			wall_hit_sfx.play()
@@ -34,8 +44,7 @@ func _physics_process(delta: float) -> void:
 			
 		else:
 			velocity = velocity.bounce(collision.get_normal())
-		
-		
+
 func launch():
 	velocity = Vector2.ZERO
 	await get_tree().create_timer(launch_delay).timeout

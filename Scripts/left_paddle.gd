@@ -17,10 +17,10 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2(0, direction * speed)
 		move_and_slide()
 		
-		var half = collision_shape_2d.shape.size.y / 2
-		var screen_h = get_viewport_rect().size.y
-		global_position.y = clamp(global_position.y, half + margin, screen_h - half - margin)
-		global_position.x = start_x
+		#var half = collision_shape_2d.shape.size.y / 2
+		#var screen_h = get_viewport_rect().size.y
+		#global_position.y = clamp(global_position.y, half + margin, screen_h - half - margin)
+		#global_position.x = start_x
 
 func shrink():
 	animation_player.play("shrink")
