@@ -23,6 +23,12 @@ size = Vector2(33, 704)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
 size = Vector2(33, 704)
 
+[sub_resource type="Environment" id="Environment_kry3j"]
+background_mode = 3
+glow_enabled = true
+glow_strength = 0.5
+glow_bloom = 0.5
+
 [node name="Main" type="Node2D" unique_id=202715708]
 script = ExtResource("1_kry3j")
 
@@ -73,6 +79,17 @@ position = Vector2(1255.5, 360)
 shape = SubResource("RectangleShape2D_8gbba")
 debug_color = Color(1, 0.13725491, 0.2509804, 0.41960785)
 
+[node name="ScoreSFX" type="AudioStreamPlayer" parent="." unique_id=617620204]
+stream = ExtResource("5_ynf5e")
+pitch_scale = 1.2
+
+[node name="Darkness" type="CanvasModulate" parent="." unique_id=676644294]
+visible = false
+color = Color(0, 0, 0, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=627786271]
+environment = SubResource("Environment_kry3j")
+
 [node name="LeftScoreLabel" type="Label" parent="." unique_id=889256772]
 offset_left = 200.0
 offset_top = 50.0
@@ -94,10 +111,6 @@ theme_override_font_sizes/font_size = 100
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ScoreSFX" type="AudioStreamPlayer" parent="." unique_id=617620204]
-stream = ExtResource("5_ynf5e")
-pitch_scale = 1.2
 
 [connection signal="body_entered" from="LeftGoal" to="." method="_on_left_goal_body_entered"]
 [connection signal="body_entered" from="RightGoal" to="." method="_on_right_goal_body_entered"]

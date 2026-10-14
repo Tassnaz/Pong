@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var wall_hit_sfx: AudioStreamPlayer2D = $WallHitSFX
 @onready var hit_particles: CPUParticles2D = $HitParticles
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var point_light_2d: PointLight2D = $PointLight2D
 
 
 @export var speed: float = 400.0
@@ -63,3 +64,6 @@ func spawn_particles(collision):
 	hit_particles.global_position = collision.get_position()
 	hit_particles.rotation = collision.get_normal().angle()
 	hit_particles.restart()
+
+func set_light(on: bool):
+	point_light_2d.visible = on
