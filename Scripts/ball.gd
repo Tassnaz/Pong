@@ -1,17 +1,27 @@
 extends CharacterBody2D
 
+var rainbow: bool = false
+var hue: float = 0.0
+
+@export var speed: float = 400.0
+@export var launch_delay: float = 1.0
+
 @onready var paddle_hit_sfx: AudioStreamPlayer2D = $PaddleHitSFX
 @onready var wall_hit_sfx: AudioStreamPlayer2D = $WallHitSFX
 @onready var hit_particles: CPUParticles2D = $HitParticles
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var point_light_2d: PointLight2D = $PointLight2D
-
-
-@export var speed: float = 400.0
-@export var launch_delay: float = 1.0
+@onready var panel: Panel = $Panel
 
 func _ready() -> void:
+	
 	launch()
+
+func _process(delta: float) -> void:
+	if rainbow:
+		hue = fmod(hue + delta * 0.5, 1.0)
+		modulate = Color.from_hsv(hue, 1.0, 1.0)
+		Global.score_amount = 2
 
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
@@ -67,3 +77,9 @@ func spawn_particles(collision):
 
 func set_light(on: bool):
 	point_light_2d.visible = on
+
+func set_rainbow(on: bool):
+	rainbow = on
+	if not on:
+		modulate = Color.WHITE
+		Global.score_amount = 1

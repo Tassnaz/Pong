@@ -1,8 +1,9 @@
 extends Node2D
 
-enum  Mode {NORMAL, DARK, SHRINK}
+enum  Mode {NORMAL, DARK, SHRINK, RAINBOW}
 
 var current_mode: Mode = Mode.NORMAL
+
 
 @onready var ball: CharacterBody2D = $Ball
 @onready var left_paddle: CharacterBody2D = $LeftPaddle
@@ -47,20 +48,21 @@ func set_mode_dark(on: bool):
 	ball.set_light(on)
 
 func pick_random_mode():
+	var previous_mode = current_mode
 	var options = Mode.values()
 	options.erase(current_mode)
 	current_mode = options.pick_random()
-	apply_mode(current_mode)
+	apply_mode(current_mode, previous_mode)
 
-func apply_mode(mode: Mode):
+func apply_mode(mode: Mode, previous_mode: Mode):
 	set_mode_dark(mode == Mode.DARK)
-	var shrink = mode == Mode.SHRINK
-	if shrink:
+	ball.set_rainbow(mode == Mode.RAINBOW)
+	
+	if mode == Mode.SHRINK:
 		set_mode_shrink()
-	else:
+	elif previous_mode == Mode.SHRINK:
 		left_paddle.reset_size()
 		right_paddle.reset_size()
-
 func new_round():
 	left_paddle.reset_position()
 	right_paddle.reset_position()
