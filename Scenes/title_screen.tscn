@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://0lxjm0mtwtwu"]
+
+[ext_resource type="PackedScene" uid="uid://01a4a526xowj" path="res://Scenes/button.tscn" id="1_klylv"]
+[ext_resource type="Theme" uid="uid://pid6kxfou0nm" path="res://Resources/menu_theme.tres" id="1_p3fck"]
+[ext_resource type="Script" uid="uid://de2ng3y4ds4u" path="res://Scripts/play_button.gd" id="3_4gxqj"]
+[ext_resource type="Script" uid="uid://bhdm4bqwu7vdm" path="res://Scenes/quit_button.gd" id="4_twnyg"]
+
+[node name="Title Screen" type="Control" unique_id=23787327]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_p3fck")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1599839630]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1630981491]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Title" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=1251883095]
+layout_mode = 2
+theme_type_variation = &"RichTextLabelTitle"
+bbcode_enabled = true
+text = "PONG [rainbow][tornado]RANDOM
+"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="PlayButton" parent="PanelContainer/VBoxContainer" unique_id=1489833541 instance=ExtResource("1_klylv")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_4gxqj")
+
+[node name="OptionsButton" parent="PanelContainer/VBoxContainer" unique_id=2051533865 instance=ExtResource("1_klylv")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Options"
+
+[node name="QuitButton" parent="PanelContainer/VBoxContainer" unique_id=435736159 instance=ExtResource("1_klylv")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Quit
+"
+script = ExtResource("4_twnyg")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/PlayButton" to="PanelContainer/VBoxContainer/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="PanelContainer/VBoxContainer/PlayButton" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="PanelContainer/VBoxContainer/QuitButton" method="_on_pressed"]

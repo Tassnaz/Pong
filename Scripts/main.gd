@@ -4,7 +4,6 @@ enum  Mode {NORMAL, DARK, SHRINK, RAINBOW}
 
 var current_mode: Mode = Mode.NORMAL
 
-
 @onready var ball: CharacterBody2D = $Ball
 @onready var left_paddle: CharacterBody2D = $LeftPaddle
 @onready var right_paddle: CharacterBody2D = $RightPaddle
@@ -12,7 +11,6 @@ var current_mode: Mode = Mode.NORMAL
 @onready var right_score_label: Label = $RightScoreLabel
 @onready var score_sfx: AudioStreamPlayer = $ScoreSFX
 @onready var darkness: CanvasModulate = $Darkness
-
 
 func _ready() -> void:
 	Global.changed.connect(uppdate_labels)
@@ -55,6 +53,7 @@ func pick_random_mode():
 	apply_mode(current_mode, previous_mode)
 
 func apply_mode(mode: Mode, previous_mode: Mode):
+	
 	set_mode_dark(mode == Mode.DARK)
 	ball.set_rainbow(mode == Mode.RAINBOW)
 	
@@ -63,6 +62,7 @@ func apply_mode(mode: Mode, previous_mode: Mode):
 	elif previous_mode == Mode.SHRINK:
 		left_paddle.reset_size()
 		right_paddle.reset_size()
+
 func new_round():
 	left_paddle.reset_position()
 	right_paddle.reset_position()
