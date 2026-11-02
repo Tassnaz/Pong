@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dmqj6db0y8nsc"]
+
+[ext_resource type="Theme" uid="uid://pid6kxfou0nm" path="res://Resources/menu_theme.tres" id="1_a88po"]
+
+[node name="PointSlider" type="Control" unique_id=1597474931]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_a88po")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1961460120]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1332330521]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=1453923352]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Test"
+fit_content = true
+autowrap_mode = 0
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/VBoxContainer" unique_id=957738427]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=564011493]
+position = Vector2(640, 360)
+zoom = Vector2(2, 2)

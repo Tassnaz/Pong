@@ -19,6 +19,17 @@ border_width_bottom = 6
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ha6uh"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04pwr"]
+bg_color = Color(0.9882353, 0, 0.9882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5p0w"]
+bg_color = Color(0.8679065, 0.49036998, 0.15394023, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yquna"]
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.58431375, 0, 0.7058824, 0.5529412)
+
 [resource]
 default_font = ExtResource("2_xs7v1")
 default_font_size = 64
@@ -28,6 +39,9 @@ Button/styles/focus = SubResource("StyleBoxFlat_nc4lk")
 Button/styles/hover = SubResource("StyleBoxFlat_xs7v1")
 Button/styles/normal = SubResource("StyleBoxFlat_f6rp6")
 Button/styles/pressed = SubResource("StyleBoxFlat_ha6uh")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_04pwr")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_g5p0w")
+HSlider/styles/slider = SubResource("StyleBoxFlat_yquna")
 PanelContainer/styles/panel = ExtResource("1_4usjb")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabelTitle/base_type = &"RichTextLabel"
