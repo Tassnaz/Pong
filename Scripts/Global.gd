@@ -5,6 +5,8 @@ signal changed
 var score_amount: int = 1
 var left_score: int = 0
 var right_score: int = 0
+var score_to_win: int
+var winner: String
 
 func add_score_left():
 	left_score += score_amount

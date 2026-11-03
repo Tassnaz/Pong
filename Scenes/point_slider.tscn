@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dmqj6db0y8nsc"]
 
 [ext_resource type="Theme" uid="uid://pid6kxfou0nm" path="res://Resources/menu_theme.tres" id="1_a88po"]
+[ext_resource type="Script" uid="uid://6ehokn8eqo82" path="res://Scripts/point_slider.gd" id="2_bmc55"]
 
 [node name="PointSlider" type="Control" unique_id=1597474931]
 texture_filter = 2
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_a88po")
+script = ExtResource("2_bmc55")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1961460120]
 layout_mode = 1
@@ -25,11 +27,11 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=1453923352]
+[node name="ScoreToWinLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=1453923352]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Test"
+text = "1"
 fit_content = true
 autowrap_mode = 0
 
@@ -41,7 +43,24 @@ size_flags_vertical = 4
 min_value = 1.0
 max_value = 10.0
 value = 1.0
+rounded = true
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=564011493]
-position = Vector2(640, 360)
-zoom = Vector2(2, 2)
+[node name="PlayButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1727240933]
+layout_mode = 2
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 15)
+text = "Play"
+
+[node name="ExplainLabel" type="RichTextLabel" parent="PanelContainer" unique_id=1198742129]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, 50)
+theme_type_variation = &"RichTextLabelTitle"
+text = "Score to win"
+fit_content = true
+autowrap_mode = 0
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

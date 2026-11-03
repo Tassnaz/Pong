@@ -23,6 +23,10 @@ func _on_left_goal_body_entered(body: Node2D) -> void:
 		new_round()
 		ball.reset()
 		print ("score")
+		
+	if Global.right_score >= Global.score_to_win:
+		Global.winner = "Right"
+		get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
 
 func _on_right_goal_body_entered(body: Node2D) -> void:
 	if body == ball:
@@ -30,8 +34,11 @@ func _on_right_goal_body_entered(body: Node2D) -> void:
 		score_sfx.play()
 		new_round()
 		ball.reset()
-		
 		print ("score")
+		
+	if Global.left_score >= Global.score_to_win:
+		Global.winner = "Left"
+		get_tree().change_scene_to_file("res://Scenes/win_screen.tscn")
 
 func uppdate_labels():
 	left_score_label.text = str(Global.left_score)

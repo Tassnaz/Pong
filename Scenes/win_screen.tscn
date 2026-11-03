@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bhdjhsav60rs5"]
+
+[ext_resource type="Theme" uid="uid://pid6kxfou0nm" path="res://Resources/menu_theme.tres" id="1_l5sol"]
+
+[node name="Win Screen" type="Control" unique_id=1929573284]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_l5sol")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=185752972]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=762677874]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=573849148]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_type_variation = &"RichTextLabelTitle"
+text = "Left Wins!"
+fit_content = true
+autowrap_mode = 0
+
+[node name="PlayAgainButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=466443023]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Play Again"
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2073769268]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Menu"
