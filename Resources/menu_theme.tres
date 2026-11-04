@@ -23,7 +23,7 @@ bg_color = Color(1, 1, 1, 1)
 bg_color = Color(0.9882353, 0, 0.9882353, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g5p0w"]
-bg_color = Color(0.8679065, 0.49036998, 0.15394023, 1)
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yquna"]
 content_margin_top = 5.0
@@ -42,6 +42,7 @@ Button/styles/pressed = SubResource("StyleBoxFlat_ha6uh")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_04pwr")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_g5p0w")
 HSlider/styles/slider = SubResource("StyleBoxFlat_yquna")
+Label/font_sizes/font_size = 30
 PanelContainer/styles/panel = ExtResource("1_4usjb")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabelTitle/base_type = &"RichTextLabel"

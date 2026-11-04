@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://01a4a526xowj" path="res://Scenes/button.tscn" id="1_klylv"]
 [ext_resource type="Theme" uid="uid://pid6kxfou0nm" path="res://Resources/menu_theme.tres" id="1_p3fck"]
 [ext_resource type="Script" uid="uid://de2ng3y4ds4u" path="res://Scripts/play_button.gd" id="3_4gxqj"]
+[ext_resource type="Script" uid="uid://di2p2s6aopn1j" path="res://Scripts/OptionsButton.gd" id="4_55kwv"]
 [ext_resource type="Script" uid="uid://bhdm4bqwu7vdm" path="res://Scripts/quit_button.gd" id="4_twnyg"]
 
 [node name="Title Screen" type="Control" unique_id=23787327]
@@ -48,6 +49,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Options"
+script = ExtResource("4_55kwv")
 
 [node name="QuitButton" parent="PanelContainer/VBoxContainer" unique_id=435736159 instance=ExtResource("1_klylv")]
 layout_mode = 2
@@ -58,5 +60,6 @@ text = "Quit
 script = ExtResource("4_twnyg")
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/PlayButton" to="PanelContainer/VBoxContainer/PlayButton" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/OptionsButton" to="PanelContainer/VBoxContainer/OptionsButton" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="PanelContainer/VBoxContainer/PlayButton" method="_on_quit_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="PanelContainer/VBoxContainer/QuitButton" method="_on_pressed"]

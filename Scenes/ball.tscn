@@ -62,10 +62,12 @@ shape = SubResource("CircleShape2D_kry3j")
 [node name="PaddleHitSFX" type="AudioStreamPlayer2D" parent="." unique_id=113628684]
 stream = SubResource("AudioStreamRandomizer_eb1ap")
 volume_db = 10.0
+bus = &"SFX"
 
 [node name="WallHitSFX" type="AudioStreamPlayer2D" parent="." unique_id=876872799]
 stream = SubResource("AudioStreamRandomizer_27lt3")
 volume_db = 10.0
+bus = &"SFX"
 
 [node name="HitParticles" type="CPUParticles2D" parent="." unique_id=1995685547]
 emitting = false
@@ -83,3 +85,8 @@ scale_amount_curve = SubResource("Curve_7k5wq")
 energy = 2.0
 texture = SubResource("GradientTexture2D_cvdga")
 texture_scale = 12.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=463278059]
+rect = Rect2(-30, -30, 60, 60)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

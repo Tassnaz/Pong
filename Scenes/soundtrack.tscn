@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cq2sm8iousuxe"]
+
+[ext_resource type="AudioStream" uid="uid://b6negb0sh78lu" path="res://Assets/Soundtracks/pong_song.wav" id="1_v18me"]
+
+[node name="Soundtrack" type="Node" unique_id=1922065665]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1281952452]
+stream = ExtResource("1_v18me")
+autoplay = true
+bus = &"Music"

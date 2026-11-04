@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 		hue = fmod(hue + delta * 0.5, 1.0)
 		modulate = Color.from_hsv(hue, 1.0, 1.0)
 		Global.score_amount = 2
+		Global.speed_increase = 50
 
 func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
@@ -29,7 +30,7 @@ func _physics_process(delta: float) -> void:
 		spawn_particles(collision)
 		var collider = collision.get_collider()
 		if collider.is_in_group("paddle"):
-			speed += 25
+			speed += Global.speed_increase
 			var screen_mid = get_viewport_rect().size.x / 2
 			var dir_x = 1.0 if collider.global_position.x < screen_mid else -1.0
 			
@@ -83,3 +84,7 @@ func set_rainbow(on: bool):
 	if not on:
 		modulate = Color.WHITE
 		Global.score_amount = 1
+		Global.speed_increase = 25
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	reset()

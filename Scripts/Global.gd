@@ -7,6 +7,7 @@ var left_score: int = 0
 var right_score: int = 0
 var score_to_win: int
 var winner: String
+var speed_increase: int = 25
 
 func add_score_left():
 	left_score += score_amount
