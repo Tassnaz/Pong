@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Pong"
+config/name="Pong Random"
+config/version="v0.1"
 run/main_scene="uid://0lxjm0mtwtwu"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+config/icon="uid://f0utvxt0fri5"
 
 [audio]
 
@@ -28,6 +30,7 @@ Soundtrack="*uid://cq2sm8iousuxe"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

@@ -46,11 +46,16 @@ value = 1.0
 rounded = true
 
 [node name="PlayButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1727240933]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
-offset_transform_enabled = true
 offset_transform_position = Vector2(0, 15)
 text = "Play"
+
+[node name="BackButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1438419706]
+layout_mode = 2
+text = "Back"
 
 [node name="ExplainLabel" type="RichTextLabel" parent="PanelContainer" unique_id=1198742129]
 layout_mode = 2
@@ -64,3 +69,4 @@ fit_content = true
 autowrap_mode = 0
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
